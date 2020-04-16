@@ -29,7 +29,7 @@ export default function Navigation() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Stories" />
+          <NavbarItem path="/stories" linkText="Stories" />
           <NavbarItem path="/other" linkText="My page" />
           <NavbarItem path="/meetup" linkText="Organize meetup" />
           {loginLogoutControls}
