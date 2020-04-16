@@ -5,7 +5,7 @@ export default function LandingPage() {
   return (
     <div className="landing-page">
       <div className="hero-image">
-        <div class="img"></div>
+        <div className="img"></div>
         <div className="hero-text">
           <span>Schrijvers</span>
           <p>For all aspiring writers</p>
