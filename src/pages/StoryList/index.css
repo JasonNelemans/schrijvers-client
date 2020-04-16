@@ -1,0 +1,21 @@
+.story-container {
+  display: flex;
+  border: solid 1px black;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 11px;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.story-text {
+  margin-left: 10px;
+}
+
+.story-text > p {
+  margin-bottom: 0px;
+}
+
+.posted {
+  font-size: 12px;
+}

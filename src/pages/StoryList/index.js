@@ -3,6 +3,8 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStories } from '../../store/storyList/actions';
 import { selectStories } from '../../store/storyList/selectors';
+import Story from './Story';
+import './index.css';
 
 export default function StoryList() {
   const dispatch = useDispatch();
@@ -19,7 +21,14 @@ export default function StoryList() {
         <h1>The list of stories</h1>
       </Jumbotron>
       <div className='all-stories'>
-        
+        {stories.map(story => {
+          return (
+            <Story 
+              key={story.id}
+              {...story}
+            />
+          )
+        })}
       </div>
     </div>
   )
