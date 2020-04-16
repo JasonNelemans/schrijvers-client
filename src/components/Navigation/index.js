@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import logo from '../../images/logo-white.png';
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -14,15 +15,23 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg" variant="dark">
       <Navbar.Brand as={NavLink} to="/">
-        YOUR PROJECT NAME
-      </Navbar.Brand>
+      <img
+        alt=""
+        src={logo}
+        width="30"
+        height="30"
+        className="d-inline-block align-top"
+      />{' '}
+      Schrijvers
+    </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path="/other" linkText="Other" />
+          <NavbarItem path="/stories" linkText="Stories" />
+          <NavbarItem path="/other" linkText="My page" />
+          <NavbarItem path="/meetup" linkText="Organize meetup" />
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
