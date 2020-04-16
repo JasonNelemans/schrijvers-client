@@ -36,7 +36,8 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/stories" component={StoryList} />
+        <Route exact path="/stories" component={StoryList} />
+        <Route path="/stories/:id" />
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
