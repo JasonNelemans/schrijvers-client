@@ -8,3 +8,12 @@ export const fetchStoryById = id => {
     dispatch({ type: 'STORY_BY_ID', payload: response.data})
   }
 }
+
+export const fetchNextParagraph = (id, paragraphNumber) => {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/stories/${id}/${paragraphNumber}`);
+
+    console.log(response)
+    // dispatch({ type: 'NEXT_PARAGRAPH', payload:})
+  }
+}
