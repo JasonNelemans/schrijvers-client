@@ -14,7 +14,13 @@ export default function ReadStory() {
   useEffect(() => {
     dispatch(fetchStoryById(id));
     dispatch(fetchNextParagraph(id, paragraphNumber))
-  }, []);
+  }, [paragraphNumber, dispatch, id]);
+
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) === document.body.scrollHeight) {
+      setParagraphNumber(paragraphNumber + 1)
+    }
+  };
 
   return (
     <div className="read-story">
@@ -23,7 +29,11 @@ export default function ReadStory() {
         <h3>By {story.user.name}</h3>
       </div>
       <div className="paragraphs">
-       
+        {story.paragraphs.map((paragraph, i) => {
+          return (
+            <p key={i}>{paragraph}</p>
+          )
+        })}
       </div>
     </div>
   );

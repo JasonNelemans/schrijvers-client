@@ -11,6 +11,12 @@ export default (state = initialState, action) => {
         ...action.payload,
         user: { ...action.payload.user },
       };
+    
+      case "NEXT_PARAGRAPH": 
+        return {
+          ...state,
+          paragraphs: [...state.paragraphs, action.payload]
+        }
     default:
       return state;
   }
