@@ -37,6 +37,9 @@ export default function ReadStory() {
           )
         })}
       </div>
+      <div className="last-paragraph">
+        {story.lastParagraph ? <h3><strong>THE END</strong></h3> : ''}
+      </div>
     </div>
   );
 }

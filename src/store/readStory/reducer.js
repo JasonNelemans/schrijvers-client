@@ -1,6 +1,7 @@
 const initialState = {
   paragraphs: [],
   user: {},
+  lastParagraph: false,
 };
 
 export default (state = initialState, action) => {
@@ -11,18 +12,24 @@ export default (state = initialState, action) => {
         ...action.payload,
         user: { ...action.payload.user },
       };
-    
+
     case "FIRST_PARAGRAPH":
       return {
         ...state,
-        paragraphs: [ action.payload ]
+        paragraphs: [action.payload],
+      };
+
+    case "NEXT_PARAGRAPH":
+      return {
+        ...state,
+        paragraphs: [...state.paragraphs, action.payload],
+      };
+
+    case "LAST_PARAGRAPH":
+      return {
+        ...state,
+        lastParagraph: true
       }
-    
-      case "NEXT_PARAGRAPH": 
-        return {
-          ...state,
-          paragraphs: [...state.paragraphs, action.payload]
-        }
     default:
       return state;
   }
