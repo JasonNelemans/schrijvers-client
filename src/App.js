@@ -14,6 +14,7 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
 import StoryList from "./pages/StoryList";
 import LandingPage from './pages/LandingPage';
+import ReadStory from "./pages/ReadStory";
 
 const Other = () => (
   <Jumbotron>
@@ -37,7 +38,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/stories" component={StoryList} />
-        <Route path="/stories/:id" />
+        <Route path="/stories/:id" component={ReadStory} />
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
