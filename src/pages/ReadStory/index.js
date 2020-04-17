@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStoryById, fetchNextParagraph } from "../../store/readStory/actions";
+import { fetchStoryById, fetchNextParagraph, fetchFirstParagraph } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
 import './index.css';
 
 export default function ReadStory() {
-  const [paragraphNumber, setParagraphNumber] = useState(1);
+  const [paragraphNumber, setParagraphNumber] = useState(2);
   const { id } = useParams();
   const dispatch = useDispatch();
   const story = useSelector(selectStory);
 
   useEffect(() => {
+    window.scroll(0,0)
     dispatch(fetchStoryById(id));
-    dispatch(fetchNextParagraph(id, paragraphNumber))
-  }, [paragraphNumber, dispatch, id]);
+    dispatch(fetchFirstParagraph(id, 1))
+  }, [dispatch, id]);
 
   window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY) === document.body.scrollHeight) {
-      setParagraphNumber(paragraphNumber + 1)
+      setParagraphNumber(paragraphNumber + 1);
+      dispatch(fetchNextParagraph(id, paragraphNumber));
     }
   };
 

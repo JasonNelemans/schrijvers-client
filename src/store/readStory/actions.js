@@ -9,6 +9,18 @@ export const fetchStoryById = id => {
   }
 }
 
+export const fetchFirstParagraph = (id, paragraphNumber) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`${apiUrl}/stories/${id}/${paragraphNumber}`);
+      dispatch({ type: 'FIRST_PARAGRAPH', payload: response.data.text})
+    }
+    catch (e) {
+      console.log('error:', e)
+    }
+  }
+}
+
 export const fetchNextParagraph = (id, paragraphNumber) => {
   return async (dispatch, getState) => {
     try {
