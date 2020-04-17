@@ -1,0 +1,12 @@
+.story-title {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.story-title > h1 {
+  font-size: 60px;
+}
+
+.story-title > h3 {
+  margin-top: 20px;
+}
