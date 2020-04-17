@@ -1,0 +1,31 @@
+.story-title {
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.story-title > h1 {
+  font-size: 60px;
+}
+
+.story-title > h3 {
+  margin-top: 40px;
+}
+
+.paragraphs{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.paragraphs > p {
+  font-size: 25px;
+  line-height: 35px;
+  font-family: Times, Serif;
+  margin-bottom: 30px;
+}
+
+.last-paragraph {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

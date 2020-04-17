@@ -11,6 +11,7 @@ export default function StoryList() {
   const stories = useSelector(selectStories);
 
   useEffect(() => {
+    if(stories.length !== 0) return;
     dispatch(fetchStories())
   },  
   [dispatch])
