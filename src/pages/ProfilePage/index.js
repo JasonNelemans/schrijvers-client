@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "react-bootstrap/Button";
 import { selectUser } from "../../store/user/selectors";
 import { storiesByUser } from "../../store/profilePage/actions";
 import { selectProfilePage } from "../../store/profilePage/selectors";
@@ -19,13 +20,21 @@ export default function ProfilePage() {
 
   return (
     <div className="profile-page">
+      <div className="buttons">
+        <Button variant="danger" className="button">
+          Upload story
+        </Button>
+        <Button variant="light" className="button">
+          Edit
+        </Button>
+      </div>
       <div className="my-stories-container">
         <h2>My stories</h2>
         <div className="my-stories">
           {profile.map((story) => {
             return <ProfileStory {...story} />;
           })}
-        </div>  
+        </div>
       </div>
     </div>
   );

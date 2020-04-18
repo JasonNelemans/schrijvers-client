@@ -1,11 +1,21 @@
 .my-stories-container {
-  margin: 20px 40% 20px 10px;
+  margin: 20px 40% 20px 30px;
+}
+
+.buttons {
+  position: absolute;
+  left: 80%;
+}
+
+.buttons > .button{
+  display: block;
+  margin: 10px;
 }
 
 .my-stories-container > h2 {
   text-align: center;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: 3px;
   padding: 10px;
   background-color: #868e96;
