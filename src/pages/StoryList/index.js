@@ -14,7 +14,7 @@ export default function StoryList() {
     if(stories.length !== 0) return;
     dispatch(fetchStories())
   },  
-  [dispatch])
+  [dispatch, stories.length])
 
   return (
     <div className='story-list'>
