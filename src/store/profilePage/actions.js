@@ -15,3 +15,5 @@ export const storiesByUser = userId => {
     }
   }
 }
+
+export const logoutProfilePage = () => ({ type: 'LOGOUT_PROFILEPAGE'})
