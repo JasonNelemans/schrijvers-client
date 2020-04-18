@@ -32,7 +32,7 @@ export default function ProfilePage() {
         <h2>My stories</h2>
         <div className="my-stories">
           {profile.map((story) => {
-            return <ProfileStory {...story} />;
+            return <ProfileStory key={story.title} {...story} />;
           })}
         </div>
       </div>

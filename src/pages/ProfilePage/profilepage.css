@@ -1,5 +1,10 @@
+.profile-page {
+  background-image: url('../../images/openbooks.jpeg');
+
+}
+
 .my-stories-container {
-  margin: 20px 40% 20px 30px;
+  margin: 0px 40% 0px 30px;
 }
 
 .buttons {
@@ -39,4 +44,3 @@
   display: flex;
   justify-content: space-between;
 }
-

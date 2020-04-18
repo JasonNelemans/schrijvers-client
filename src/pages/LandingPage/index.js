@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../images/logo-white.png";
+import './landingpage.css';
 
 export default function LandingPage() {
   return (

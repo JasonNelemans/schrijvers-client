@@ -1,3 +1,13 @@
+.story-list {
+  background-image: url('../../images/library.jpeg');
+}
+
+
+.story-list > h1 {
+  text-align: center;
+  color: white;
+}
+
 .story-container {
   display: flex;
   border: solid 1px black;
@@ -6,6 +16,7 @@
   margin-bottom: 11px;
   padding: 10px;
   border-radius: 7px;
+  background-color: white;
 }
 
 .story-text {
