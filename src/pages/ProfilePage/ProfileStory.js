@@ -10,7 +10,7 @@ export default function ProfileStory(props) {
       <div>
         <h3>{props.title}</h3> posted: {time}
       </div>
-      <Button>Info</Button>
+      <Button variant="secondary">Info</Button>
     </div>
   );
 }
