@@ -15,6 +15,7 @@ import StoryList from "./pages/StoryList";
 import LandingPage from "./pages/LandingPage";
 import ReadStory from "./pages/ReadStory";
 import ProfilePage from "./pages/ProfilePage";
+import StoryInfo from "./pages/StoryInfo";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/profile" component={ProfilePage} />
+        <Route path="/story/info/:id" component={StoryInfo} />
       </Switch>
     </div>
   );
