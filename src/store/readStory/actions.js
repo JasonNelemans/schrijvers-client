@@ -66,7 +66,7 @@ export const updateTitleClicked = (id, titleClicked) => {
     try {
       await axios.patch(`${apiUrl}/stories/clicktitle`, {
         id,
-        titleClicked,
+        titleClicked: titleClicked + 1,
       });
       console.log("title clicked: ", titleClicked);
       dispatch({ type: "TITLECLICKED_UPDATED", payload: titleClicked });

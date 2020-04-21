@@ -5,6 +5,7 @@ import {
   fetchStoryById,
   fetchNextParagraph,
   fetchFirstParagraph,
+  updateTitleClicked,
 } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
 import "./index.css";
@@ -19,7 +20,8 @@ export default function ReadStory() {
     window.scroll(0, 0);
     dispatch(fetchStoryById(id));
     dispatch(fetchFirstParagraph(id, 1));
-  }, [dispatch, id]);
+    if(story.titleClicked && story.id) dispatch(updateTitleClicked(story.id, story.titleClicked));
+  }, [dispatch, id, story.titleClicked, story.id]);
 
   window.onscroll = function (ev) {
     if (window.innerHeight + window.scrollY === document.body.scrollHeight) {
