@@ -14,3 +14,18 @@ export const fetchStoryInfo = (userId, storyId) => {
     }
   }
 }
+
+export const updateTitleClicked = (id, titleClicked) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.patch(`${apiUrl}/stories/clicktitle`, {
+        id,
+        titleClicked
+      });
+      // dispatch()
+    }
+    catch (e) {
+      console.log('error', e);
+    }
+  }
+}
