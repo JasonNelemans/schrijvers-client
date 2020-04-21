@@ -41,3 +41,19 @@ export const fetchNextParagraph = (id, paragraphNumber) => {
     }
   };
 };
+
+export const updateTitleClicked = (id, titleClicked) => {
+  return async (dispatch, getState) => {
+    try {
+      await axios.patch(`${apiUrl}/stories/clicktitle`, {
+        id,
+        titleClicked
+      });
+      console.log('title clicked: ', titleClicked)
+      dispatch({ type: 'TITLECLICKED_UPDATED', payload: titleClicked })
+    }
+    catch (e) {
+      console.log('error', e);
+    }
+  }
+}

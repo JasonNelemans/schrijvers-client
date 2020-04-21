@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         paragraphs: [action.payload],
-        lastParagraph: false
+        lastParagraph: false,
       };
 
     case "NEXT_PARAGRAPH":
@@ -29,8 +29,15 @@ export default (state = initialState, action) => {
     case "LAST_PARAGRAPH":
       return {
         ...state,
-        lastParagraph: true
-      }
+        lastParagraph: true,
+      };
+
+    case "TITLECLICKED_UPDATED":
+      return {
+        ...state,
+        titleClicked: action.payload,
+      };
+
     default:
       return state;
   }

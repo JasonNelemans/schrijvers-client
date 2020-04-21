@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from 'react-redux';
 import "./index.css";
 import { NavLink } from "react-router-dom";
-import { updateTitleClicked } from "../../store/storyInfo/actions";
+import { updateTitleClicked } from "../../store/readStory/actions";
 const moment = require("moment");
 
 export default function Story(props) {
