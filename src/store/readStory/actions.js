@@ -36,7 +36,8 @@ export const fetchFirstParagraph = (id, paragraphNumber) => {
       const response = await axios.get(
         `${apiUrl}/stories/paragraph/${id}/${paragraphNumber}`
       );
-
+      
+      //could make if statement to dispatch first para if paranumber === 1, to keep DRY.
       dispatch({ type: "FIRST_PARAGRAPH", payload: response.data });
       dispatch(updateParagraphRead(id, paragraphNumber, response.data.timesRead));
     } catch (e) {
