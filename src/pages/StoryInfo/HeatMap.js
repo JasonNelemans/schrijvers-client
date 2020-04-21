@@ -13,7 +13,9 @@ export default function HeatMap(props) {
   return (
     <div className="heatmap">
       <div className="heatmap-paragraphs">
+        
         {coloredParagraphs.map((paragraph) => {
+          
           let color;
           if (paragraph.percentile > 0 && paragraph.percentile <= 25) {
             color = "#FFFFB7";
@@ -38,7 +40,7 @@ export default function HeatMap(props) {
                 </span>
                 {"  "}
                 <span>
-                  Percentile: <strong>{paragraph.percentile}%</strong>
+                  Percentile: <strong>{Math.round(paragraph.percentile)}%</strong>
                 </span>
               </p>
               <div

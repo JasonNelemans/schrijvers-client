@@ -36,7 +36,8 @@ export default function ReadStory() {
       </div>
       <div className="paragraphs">
         {story.paragraphs.map((paragraph, i) => {
-          return <p key={i}>{paragraph}</p>;
+          if(!paragraph) return;
+          return <p key={i}>{paragraph.text}</p>;
         })}
       </div>
       <div className="last-paragraph">

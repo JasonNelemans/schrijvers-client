@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { setMessage } from '../appState/actions';
+import { setMessage } from "../appState/actions";
 
 export const fetchStoryById = (id) => {
   return async (dispatch, getState) => {
@@ -10,7 +10,22 @@ export const fetchStoryById = (id) => {
       dispatch({ type: "STORY_BY_ID", payload: response.data });
     } catch (e) {
       console.log("error: ", e);
-      dispatch(setMessage("danger", true, e.response.data.message))
+      dispatch(setMessage("danger", true, e.response.data.message));
+    }
+  };
+};
+
+export const updateParagraphRead = (storyId, paragraphNumber, timesRead) => {
+  return async (dispatch, getState) => {
+    try {
+      await axios.patch(`${apiUrl}/stories/update/paragraph/read`, {
+        storyId,
+        paragraphNumber,
+        timesRead: timesRead + 1
+      });
+
+    } catch (e) {
+      console.log("error: ", e);
     }
   };
 };
@@ -21,10 +36,12 @@ export const fetchFirstParagraph = (id, paragraphNumber) => {
       const response = await axios.get(
         `${apiUrl}/stories/paragraph/${id}/${paragraphNumber}`
       );
-      dispatch({ type: "FIRST_PARAGRAPH", payload: response.data.text });
+
+      dispatch({ type: "FIRST_PARAGRAPH", payload: response.data });
+      dispatch(updateParagraphRead(id, paragraphNumber, response.data.timesRead));
     } catch (e) {
       console.log("error:", e);
-      dispatch(setMessage("danger", true, e.response.data.message))
+      dispatch(setMessage("danger", true, e.response.data.message));
     }
   };
 };
@@ -35,7 +52,8 @@ export const fetchNextParagraph = (id, paragraphNumber) => {
       const response = await axios.get(
         `${apiUrl}/stories/paragraph/${id}/${paragraphNumber}`
       );
-      dispatch({ type: "NEXT_PARAGRAPH", payload: response.data.text });
+      dispatch({ type: "NEXT_PARAGRAPH", payload: response.data });
+      dispatch(updateParagraphRead(id, paragraphNumber, response.data.timesRead));
     } catch (e) {
       dispatch({ type: "LAST_PARAGRAPH" });
     }
@@ -47,13 +65,12 @@ export const updateTitleClicked = (id, titleClicked) => {
     try {
       await axios.patch(`${apiUrl}/stories/clicktitle`, {
         id,
-        titleClicked
+        titleClicked,
       });
-      console.log('title clicked: ', titleClicked)
-      dispatch({ type: 'TITLECLICKED_UPDATED', payload: titleClicked })
+      console.log("title clicked: ", titleClicked);
+      dispatch({ type: "TITLECLICKED_UPDATED", payload: titleClicked });
+    } catch (e) {
+      console.log("error", e);
     }
-    catch (e) {
-      console.log('error', e);
-    }
-  }
-}
+  };
+};
