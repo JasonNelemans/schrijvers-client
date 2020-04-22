@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch } from 'react-redux';
 import "./index.css";
 import { NavLink } from "react-router-dom";

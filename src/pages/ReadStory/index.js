@@ -5,7 +5,6 @@ import {
   fetchStoryById,
   fetchNextParagraph,
   fetchFirstParagraph,
-  updateTitleClicked,
 } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
 import "./index.css";

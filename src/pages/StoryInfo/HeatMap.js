@@ -28,6 +28,14 @@ export default function HeatMap(props) {
           } else {
             color = "white";
           }
+          let percentile;
+          if(Math.round(paragraph.percentile) === 0){
+            percentile = 0;
+          } else if (!Math.round(paragraph.percentile)) {
+            percentile ='-'
+          } else {
+            percentile = Math.round(paragraph.percentile)
+          }
           return (
             <div key={paragraph.id}>
               <p>
@@ -40,7 +48,7 @@ export default function HeatMap(props) {
                 </span>
                 {"  "}
                 <span>
-                  Percentile: <strong>{Math.round(paragraph.percentile)}%</strong>
+                  Percentile: <strong>{percentile}%</strong>
                 </span>
               </p>
               <div
