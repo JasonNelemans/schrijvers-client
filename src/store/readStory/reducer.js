@@ -17,6 +17,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         paragraphs: [action.payload],
+        lastParagraph: false,
       };
 
     case "NEXT_PARAGRAPH":
@@ -28,8 +29,9 @@ export default (state = initialState, action) => {
     case "LAST_PARAGRAPH":
       return {
         ...state,
-        lastParagraph: true
-      }
+        lastParagraph: true,
+      };
+
     default:
       return state;
   }

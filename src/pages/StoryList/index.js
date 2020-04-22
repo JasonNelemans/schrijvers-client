@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStories } from '../../store/storyList/actions';
 import { selectStories } from '../../store/storyList/selectors';
@@ -14,13 +13,11 @@ export default function StoryList() {
     if(stories.length !== 0) return;
     dispatch(fetchStories())
   },  
-  [dispatch])
+  [dispatch, stories.length])
 
   return (
     <div className='story-list'>
-      <Jumbotron>
         <h1>The list of stories</h1>
-      </Jumbotron>
       <div className='all-stories'>
         {stories.map(story => {
           return (

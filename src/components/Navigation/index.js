@@ -30,7 +30,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/stories" linkText="Stories" />
-          <NavbarItem path="/other" linkText="My page" />
+          <NavbarItem path="/profile" linkText="profile" />
           <NavbarItem path="/meetup" linkText="Organize meetup" />
           {loginLogoutControls}
         </Nav>

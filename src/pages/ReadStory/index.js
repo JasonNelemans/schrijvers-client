@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStoryById, fetchNextParagraph, fetchFirstParagraph } from "../../store/readStory/actions";
+import {
+  fetchStoryById,
+  fetchNextParagraph,
+  fetchFirstParagraph,
+} from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
-import './index.css';
+import "./index.css";
 
 export default function ReadStory() {
   const [paragraphNumber, setParagraphNumber] = useState(2);
@@ -12,13 +16,13 @@ export default function ReadStory() {
   const story = useSelector(selectStory);
 
   useEffect(() => {
-    window.scroll(0,0)
+    window.scroll(0, 0);
     dispatch(fetchStoryById(id));
-    dispatch(fetchFirstParagraph(id, 1))
-  }, [dispatch, id]);
+    dispatch(fetchFirstParagraph(id, 1));
+  }, [dispatch, id,]);
 
-  window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) === document.body.scrollHeight) {
+  window.onscroll = function (ev) {
+    if (window.innerHeight + window.scrollY === document.body.scrollHeight) {
       setParagraphNumber(paragraphNumber + 1);
       dispatch(fetchNextParagraph(id, paragraphNumber));
     }
@@ -32,13 +36,18 @@ export default function ReadStory() {
       </div>
       <div className="paragraphs">
         {story.paragraphs.map((paragraph, i) => {
-          return (
-            <p key={i}>{paragraph}</p>
-          )
+          if(!paragraph) return;
+          return <p key={i}>{paragraph.text}</p>;
         })}
       </div>
       <div className="last-paragraph">
-        {story.lastParagraph ? <h3><strong>THE END</strong></h3> : ''}
+        {story.lastParagraph ? (
+          <h3>
+            <strong>THE END</strong>
+          </h3>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
