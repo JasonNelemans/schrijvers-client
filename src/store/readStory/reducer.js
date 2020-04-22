@@ -32,12 +32,6 @@ export default (state = initialState, action) => {
         lastParagraph: true,
       };
 
-    case "TITLECLICKED_UPDATED":
-      return {
-        ...state,
-        titleClicked: action.payload,
-      };
-
     default:
       return state;
   }

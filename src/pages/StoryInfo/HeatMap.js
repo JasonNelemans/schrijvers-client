@@ -23,7 +23,7 @@ export default function HeatMap(props) {
             color = "#FFF192";
           } else if (paragraph.percentile > 50 && paragraph.percentile <= 75) {
             color = "#FFEA61";
-          } else if (paragraph.percentile > 75 && paragraph.percentile <= 100) {
+          } else if (paragraph.percentile > 75) {
             color = "#FFDD3C";
           } else {
             color = "white";

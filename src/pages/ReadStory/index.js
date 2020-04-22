@@ -20,8 +20,7 @@ export default function ReadStory() {
     window.scroll(0, 0);
     dispatch(fetchStoryById(id));
     dispatch(fetchFirstParagraph(id, 1));
-    if(story.titleClicked && story.id) dispatch(updateTitleClicked(story.id, story.titleClicked));
-  }, [dispatch, id, story.titleClicked, story.id]);
+  }, [dispatch, id,]);
 
   window.onscroll = function (ev) {
     if (window.innerHeight + window.scrollY === document.body.scrollHeight) {

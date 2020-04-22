@@ -10,11 +10,6 @@ export default (state = initialState, action) => {
         paragraphs: [...action.payload.paragraphs],
       };
 
-    case "TITLECLICKED_UPDATED":
-      return {
-        ...state,
-        titleClicked: action.payload,
-      };
     default:
       return state;
   }
