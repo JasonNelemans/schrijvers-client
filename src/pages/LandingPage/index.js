@@ -10,7 +10,7 @@ import './landingpage.css';
 export default function LandingPage() {
   const user = useSelector(selectUser);
   const button = user.name === null ? 'Sluit je aan' : 'Welkom terug';
-  const to = user.name === null ? '/signup' : '/stories';
+  const to = user.name === null ? '/signup' : '/profile';
 
   return (
     <div className="landing-page">
