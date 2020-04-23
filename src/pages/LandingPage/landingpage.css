@@ -17,11 +17,13 @@ div.img {
 
 .hero-text > span {
   font-size: 100px;
+  font-family: 'Dancing Script', cursive;
 }
 
 .hero-text > p {
   font-size: 25px;
   margin: 0;
+  font-family: 'Special Elite', cursive;
 }
 
 .hero-text > img {
