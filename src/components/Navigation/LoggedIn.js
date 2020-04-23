@@ -14,7 +14,7 @@ export default function LoggedIn() {
   
   return (
     <>
-      <Button variant="dark" onClick={logoutHandler}>Logout</Button>
+      <Button variant="dark" onClick={logoutHandler}>Uitloggen</Button>
     </>
   );
 }
