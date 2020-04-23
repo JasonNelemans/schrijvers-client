@@ -20,7 +20,8 @@ div.img {
 }
 
 .hero-text > p {
-  font-size: 33px;
+  font-size: 25px;
+  margin: 0;
 }
 
 .hero-text > img {
