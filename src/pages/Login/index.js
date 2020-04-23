@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import './login.css';
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -32,12 +33,13 @@ export default function SignUp() {
   }
 
   return (
+    <div className='login-page'>
     <Container >
-      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+      <Form as={Col} md={{ span: 6, offset: 3 }} className="">
   
-        <h1 className="mt-5 mb-5" style={{ fontFamily: 'Dancing Script' }}>Login</h1>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label style={{fontFamily: 'Special Elite'}}>Email address</Form.Label>
+        <h1 className="mb-5" style={{ fontFamily: 'Dancing Script', fontSize: '50px' }}>Login</h1>
+        <Form.Group controlId="formBasicEmail" style={{fontFamily: 'Special Elite'}}>
+          <Form.Label >Email address</Form.Label>
           <Form.Control
             value={email}
             onChange={event => setEmail(event.target.value)}
@@ -47,8 +49,8 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label style={{fontFamily: 'Special Elite'}}>Password</Form.Label>
+        <Form.Group controlId="formBasicPassword" style={{fontFamily: 'Special Elite'}}>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
             onChange={event => setPassword(event.target.value)}
@@ -67,5 +69,6 @@ export default function SignUp() {
         </Link>
       </Form>
     </Container>
+    </div>
   );
 }
