@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function LoggedOut() {
   return (
     <>
-      <Button variant="secondary" to="/login" as={NavLink} >Login</Button>
+      <Button variant="secondary" to="/login" as={NavLink} >Inloggen</Button>
     </>
   );
 }
