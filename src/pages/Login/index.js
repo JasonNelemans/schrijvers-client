@@ -39,23 +39,23 @@ export default function SignUp() {
   
         <h1 className="mb-5" style={{ fontFamily: 'Dancing Script', fontSize: '50px' }}>Login</h1>
         <Form.Group controlId="formBasicEmail" style={{fontFamily: 'Special Elite'}}>
-          <Form.Label >Email address</Form.Label>
+          <Form.Label >E-mailadres</Form.Label>
           <Form.Control
             value={email}
             onChange={event => setEmail(event.target.value)}
             type="email"
-            placeholder="Enter email"
+            placeholder="Voer e-mail in"
             required
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword" style={{fontFamily: 'Special Elite'}}>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Wachtwoord</Form.Label>
           <Form.Control
             value={password}
             onChange={event => setPassword(event.target.value)}
             type="password"
-            placeholder="Password"
+            placeholder="Voer wachtwoord in"
             required
           />
         </Form.Group>
@@ -65,7 +65,7 @@ export default function SignUp() {
           </Button>
         </Form.Group>
         <Link to="/signup" style={{ textAlign: "center", color: "red", fontFamily: 'Special Elite' }}>
-          Click here to sign up
+          Klik hier om je in te schrijven
         </Link>
       </Form>
     </Container>
