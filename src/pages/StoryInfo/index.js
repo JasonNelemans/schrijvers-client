@@ -31,11 +31,11 @@ export default function StoryInfo() {
         type: <strong>{info.type}</strong> genre: <strong>{info.genre}</strong>{" "}
       </p>
       <h5>
-        Title clicked: <strong>{info.titleClicked}</strong> times{" "}
+        Titel geclicked: <strong>{info.titleClicked}</strong> keer{" "}
       </h5>
       <div className="heatmap-container">
         <p>
-          Paragraph length: <strong>{info.paragraphs.length}</strong>
+          Paragraaf lengte: <strong>{info.paragraphs.length}</strong>
         </p>
         <HeatMap {...info} />
       </div>

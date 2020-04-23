@@ -18,13 +18,13 @@ export default function HeatMap(props) {
           
           let color;
           if (paragraph.percentile > 0 && paragraph.percentile <= 25) {
-            color = "#FFFFB7";
+            color = "#f26161";
           } else if (paragraph.percentile > 25 && paragraph.percentile <= 50) {
-            color = "#FFF192";
+            color = "#f03939";
           } else if (paragraph.percentile > 50 && paragraph.percentile <= 75) {
-            color = "#FFEA61";
+            color = "#ea0909";
           } else if (paragraph.percentile > 75) {
-            color = "#FFDD3C";
+            color = "#9a0707";
           } else {
             color = "white";
           }
@@ -40,11 +40,11 @@ export default function HeatMap(props) {
             <div key={paragraph.id}>
               <p>
                 <span>
-                  Paragraph: <strong>{paragraph.paragraphNumber}</strong>
+                  Paragraaf: <strong>{paragraph.paragraphNumber}</strong>
                 </span>
                 {"  "}
                 <span>
-                  Times read: <strong>{paragraph.timesRead}</strong>
+                  Aantal keer gelezen: <strong>{paragraph.timesRead}</strong>
                 </span>
                 {"  "}
                 <span>

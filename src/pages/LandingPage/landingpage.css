@@ -3,7 +3,7 @@ div.img {
   background-position: center center;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 93vh;
+  height: 91.8vh;
 }
 
 .hero-text {
@@ -17,10 +17,13 @@ div.img {
 
 .hero-text > span {
   font-size: 100px;
+  font-family: 'Dancing Script', cursive;
 }
 
 .hero-text > p {
-  font-size: 33px;
+  font-size: 25px;
+  margin: 0;
+  font-family: 'Special Elite', cursive;
 }
 
 .hero-text > img {

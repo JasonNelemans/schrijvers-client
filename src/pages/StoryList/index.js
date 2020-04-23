@@ -17,7 +17,7 @@ export default function StoryList() {
 
   return (
     <div className='story-list'>
-        <h1>The list of stories</h1>
+        <h1>Alle verhalen</h1>
       <div className='all-stories'>
         {stories.map(story => {
           return (
