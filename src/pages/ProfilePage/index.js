@@ -18,6 +18,17 @@ export default function ProfilePage() {
     dispatch(storiesByUser(user.id));
   });
 
+  if (user.name === null) {
+    return (
+      <div className="login-profile-container">
+        <div className="login-profile">
+          <h2>Log in om door te gaan...</h2>
+          <Button variant="secondary">Inloggen</Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="profile-page">
       <div className="buttons">
