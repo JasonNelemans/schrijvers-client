@@ -1,7 +1,7 @@
 .story-title {
   text-align: center;
   margin-top: 70px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 
 .story-title > h1 {
@@ -10,6 +10,10 @@
 
 .story-title > h3 {
   margin-top: 40px;
+}
+
+#author-name {
+  margin: 0;
 }
 
 .paragraphs{

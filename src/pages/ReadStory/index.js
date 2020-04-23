@@ -7,7 +7,7 @@ import {
   fetchFirstParagraph,
 } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
-import "./index.css";
+import "./readStory.css";
 
 export default function ReadStory() {
   const [paragraphNumber, setParagraphNumber] = useState(2);
@@ -32,7 +32,8 @@ export default function ReadStory() {
     <div className="read-story">
       <div className="story-title">
         <h1>{story.title}</h1>
-        <h3>By {story.user.name}</h3>
+        <h3>Geschreven door: </h3>
+        <h3 id='author-name'><em>{story.user.name}</em></h3>
       </div>
       <div className="paragraphs">
         {story.paragraphs.map((paragraph, i) => {
