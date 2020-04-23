@@ -16,6 +16,7 @@ import LandingPage from "./pages/LandingPage";
 import ReadStory from "./pages/ReadStory";
 import ProfilePage from "./pages/ProfilePage";
 import StoryInfo from "./pages/StoryInfo";
+import MeetUpPage from "./pages/MeetUpPage";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/profile" component={ProfilePage} />
         <Route path="/story/info/:id" component={StoryInfo} />
+        <Route path="/meetup" component={MeetUpPage} />
       </Switch>
     </div>
   );

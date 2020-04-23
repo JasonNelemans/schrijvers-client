@@ -6,6 +6,7 @@ import { storiesByUser } from "../../store/profilePage/actions";
 import { selectProfilePage } from "../../store/profilePage/selectors";
 import ProfileStory from "./ProfileStory";
 import "./profilepage.css";
+import { NavLink } from "react-router-dom";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function ProfilePage() {
       <div className="login-profile-container">
         <div className="login-profile">
           <h2>Log in om door te gaan...</h2>
-          <Button variant="secondary">Inloggen</Button>
+          <Button variant="secondary" as={NavLink} to='/login'>Inloggen</Button>
         </div>
       </div>
     );
