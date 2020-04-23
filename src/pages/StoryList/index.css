@@ -43,3 +43,7 @@
 .story-container > img {
   margin-top: 11px;
 }
+
+.age {
+  color: red;
+}

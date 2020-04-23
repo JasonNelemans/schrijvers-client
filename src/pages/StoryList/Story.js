@@ -15,7 +15,7 @@ export default function Story(props) {
 
   return (
     <div className="story-container">
-      <img width="70" height="90" alt=""/>
+      <img width="70" height="90" alt="" src={props.imgUrl}/>
       <div className="story-text">
         <NavLink
           to={`/stories/${props.id}`}
@@ -26,10 +26,10 @@ export default function Story(props) {
             {props.title}{" "}
           </h3>
         </NavLink>
-        <span className="author"> door: {props.user.name}</span> <br/>
+  <span className="author"> door: {props.user.name}</span> <br/>
         <p>
-          <span>{props.pg}</span> <strong>Type: </strong> {props.type} (
-          <em>{props.genre}</em>) Aantal woorden: {props.wordCount}
+         <strong>Type: </strong> {props.type} (
+          <em>{props.genre}</em>) Aantal woorden: {props.wordCount} <span className='age'>Leeftijd: {props.pg}+</span>
         </p>
         <span className="posted">Posted: {time} </span>
       </div>
