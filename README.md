@@ -72,6 +72,8 @@ The app is still a work in progress, but the horizons are clear and so is the wa
  * As a user, I want to organize meetups. 
  * As a user, I want to create writing groups. 
 
+**For a more detailed overview of all past, current and future stories, please check out [here](https://trello.com/b/Z9tchgrn/short-story-platform)** 
+
 *This mvp is still a work in progress. Some features still need to be implemented and revised. If you have any suggestions, please let me know [here](https://www.linkedin.com/in/jason-nelemans-45403317a/)*
 
 ### Wireframe

@@ -31,7 +31,7 @@ export default function StoryInfo() {
         type: <strong>{info.type}</strong> genre: <strong>{info.genre}</strong>{" "}
       </p>
       <h5>
-        Titel geclicked: <strong>{info.titleClicked}</strong> keer{" "}
+        Titel geklikt: <strong>{info.titleClicked}</strong> keer{" "}
       </h5>
       <div className="heatmap-container">
         <p>
