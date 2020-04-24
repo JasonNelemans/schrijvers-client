@@ -1,42 +1,38 @@
-# Frontend template
+# ✍️ Schrijvers ✍️
 
-This is a simple react/redux/jwt template to start a project quickly
+## What this app is about
 
-## Table of contents:
+This app is intended to serve as a platform for my (Dutch) writing peers to share short stories on and hone our craft together, fertile ground for the aspiring artist. 🌹
+ 
+## Table of contents 
 
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
+ • ![App demo](#App-demo)
+ ∙ Technologies used
+ • Goals for this project
+ ∙ User stories and Wireframe
+ • Git workflow
+ ∙ Server-repo
 
-## SETUP How to use this template
+ ## App demo
 
-1. Create a new project based on this template using the `Use this template` button
+ ![Landing page](/src/images/Landingpage.png)
+ The landing page.
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+ ![All stories](/src/images/Allstories.png)
+ All stories page.
 
-2. Clone the app
+ ![Profile page](/src/images/Mystories.png)
+ Profile page.
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
+ ![Login page](/src/images/loginpage.png)
+ Login page.
 
-3. cd into your project
+ ![Heatmap](/src/images/Heatmap.png)
+ Heatmap. Details about how much of your story was read, to suggest improvements.
 
-```
-cd YOUR_PROJECT_NAME
-```
+ ![Coming soon](/src/images/comingsoon.png)
+ And many more features to come.
 
-4. install dependencies
 
-```
-npm install
-```
 
-5. Start development server with npm start
-
-```
-npm start
-```
-
-## CRA docs
-
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+ 
