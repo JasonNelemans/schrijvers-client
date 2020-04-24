@@ -61,11 +61,11 @@ The app is still a work in progress, but the horizons are clear and so is the wa
 
 ### As a user for this project:
 
- * As a user, I want to sign up and login.\ 
- * As a user, I want to see my profile page.\ 
- * As a user, I want to see all stories I posted.\ 
- * As a user, I want to read all analytics about my individual stories.\
- * As a user, I want to read other people's stories.\ 
+ * As a user, I want to sign up and login. 
+ * As a user, I want to see my profile page. 
+ * As a user, I want to see all stories I posted. 
+ * As a user, I want to read all analytics about my individual stories.
+ * As a user, I want to read other people's stories.
  * As a user, I want to upload my story. 
  * As a user, I want to filter stories by categories. 
  * As a user, I want to search the stories of my favorite author. 
@@ -74,17 +74,21 @@ The app is still a work in progress, but the horizons are clear and so is the wa
 
 *This mvp is still a work in progress. Some features still need to be implemented and revised. If you have any suggestions, please let me know [here](https://www.linkedin.com/in/jason-nelemans-45403317a/)*
 
+### Wireframe
+
+[Click here for the wireframes of this project](https://jasonnelemans.proto.io/player/index.cfm?id=51106bc6-06e0-422e-94b6-b45bf61b2cb9)
+
 ## Git workflow
 
-In this project I aimed at using:\
+In this project I aimed at using:
 
  * Good commit messages
  * Well named branches
  * Pull requests with summaries
 
 #### 👀👇 Click links to view samples of pull requests 👇👀
- * [Read Story](https://github.com/JasonNelemans/schrijvers-client/pull/2)(client)\
- * [Read Story](https://github.com/JasonNelemans/schrijvers-server/pull/2)(server)\
+ * [Read Story](https://github.com/JasonNelemans/schrijvers-client/pull/2)(client)
+ * [Read Story](https://github.com/JasonNelemans/schrijvers-server/pull/2)(server)
 
 ## Server-repo
 
