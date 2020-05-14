@@ -1,7 +1,6 @@
 .story-list {
   background-color: black;
   padding-top: 30px;
-  padding-bottom: 252px;
 }
 
 .story-list > h1 {
@@ -27,6 +26,12 @@
   color: white;
   margin: 10px;
   justify-content: space-evenly;
+}
+
+.header-text {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
 }
 
 .story-container {
