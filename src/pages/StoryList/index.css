@@ -1,9 +1,7 @@
 .story-list {
   background-color: black;
   padding-top: 30px;
-  padding-bottom: 10px;
 }
-
 
 .story-list > h1 {
   text-align: center;
@@ -11,6 +9,29 @@
   margin-bottom: 20px;
   font-family: 'Dancing Script', cursive;
   font-size: 70px;
+}
+
+.sort-container {
+  margin-bottom: 20px;
+}
+
+.sort-text {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  color: white;
+  margin: 10px;
+  justify-content: space-evenly;
+}
+
+.header-text {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
 }
 
 .story-container {
@@ -24,7 +45,6 @@
   background-color: whitesmoke;
   font-family: 'Special Elite', cursive;
 }
-
 
 .story-text {
   margin-left: 10px;
@@ -46,3 +66,4 @@
 .age {
   color: red;
 }
+
