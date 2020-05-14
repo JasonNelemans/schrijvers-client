@@ -11,8 +11,8 @@ export default function StoryList() {
   const [age, setAge] = useState('all');
   const [type, setType] = useState('all')
   const [genre, setGenre] = useState('all');
-  const [minWordCount, setMinWordCount] = useState('all');
-  const [maxWordCount, setMaxWordCount] = useState('all');
+  const [minWordCount, setMinWordCount] = useState(0);
+  const [maxWordCount, setMaxWordCount] = useState(1500);
 
   useEffect(() => {
     if(stories.length !== 0) return;
@@ -23,7 +23,20 @@ export default function StoryList() {
   const pgArray = [...new Set(stories.map(story => story.pg))].sort((a, b) => a - b);
   const typeArray = [...new Set(stories.map(story => story.type))];
   const genreArray = [...new Set(stories.map(story => story.genre))];
-  const wordCountArray = [500, 1000, 1500];
+  const wordCountArray = [0, 500, 1000, 1500];
+
+  const filteredStories = stories.filter(story => {
+    if(
+      (story.pg >= Number(age) || age.length === 3) &&
+      (story.type === type || type.length === 3) &&
+      (story.genre === genre || genre.length === 3) && 
+      (story.wordCount >= minWordCount) && 
+      (story.wordCount <= maxWordCount)
+    ) {
+      return true
+    }
+    return false
+  })  
 
   return (
     <div className='story-list'>
@@ -44,7 +57,7 @@ export default function StoryList() {
                   {pgArray.map(pg => {
                     return (
                       <option value={pg} key={pg}>
-                        {pg}
+                        {pg}+
                       </option>
                     );
                   })}
@@ -91,7 +104,7 @@ export default function StoryList() {
                   id="minWordCount-select"
                   onChange={e => setMinWordCount(e.target.value)}
                 >
-                  <option value="all">selecteer</option>
+                  <option value={0}>selecteer</option>
                   {wordCountArray.map(wordCount => {
                     return (
                       <option value={wordCount} key={wordCount}>
@@ -108,7 +121,7 @@ export default function StoryList() {
                   id="maxWordCount-select"
                   onChange={e => setMaxWordCount(e.target.value)}
                 >
-                  <option value="all">selecteer</option>
+                  <option value={1500}>selecteer</option>
                   {wordCountArray.map(wordCount => {
                     return (
                       <option value={wordCount} key={wordCount}>
@@ -123,7 +136,7 @@ export default function StoryList() {
         
 
       <div className='all-stories'>
-        {stories.map(story => {
+        {filteredStories.map(story => {
           return (
             <Story 
               key={story.id}
