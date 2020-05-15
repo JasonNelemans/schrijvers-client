@@ -8,6 +8,7 @@ import "./index.css";
 export default function StoryList() {
   const dispatch = useDispatch();
   const stories = useSelector(selectStories);
+  const [showText, setShowText] = useState(false);
   const [age, setAge] = useState("all");
   const [type, setType] = useState("all");
   const [genre, setGenre] = useState("all");
@@ -46,6 +47,8 @@ export default function StoryList() {
       ""
     );
 
+  const displayHeaderText = showText ? headerText : '';
+
   return (
     <div className="story-list">
       <h1>De verhalen</h1>
@@ -57,7 +60,10 @@ export default function StoryList() {
             <select
               name="age"
               id="age-select"
-              onChange={(e) => setAge(e.target.value)}
+              onChange={(e) => {
+                setAge(e.target.value) 
+                setShowText(true)
+              }}
             >
               <option value="all">selecteer</option>
               {pgArray.map((pg) => {
@@ -74,7 +80,10 @@ export default function StoryList() {
             <select
               name="type"
               id="type-select"
-              onChange={(e) => setType(e.target.value)}
+              onChange={(e) => {
+                setType(e.target.value)
+                setShowText(true)
+              }}
             >
               <option value="all">selecteer</option>
               {typeArray.map((type) => {
@@ -91,7 +100,10 @@ export default function StoryList() {
             <select
               name="genre"
               id="genre-select"
-              onChange={(e) => setGenre(e.target.value)}
+              onChange={(e) => {
+                setGenre(e.target.value)
+                setShowText(true)
+              }}
             >
               <option value="all">selecteer</option>
               {genreArray.map((genre) => {
@@ -108,7 +120,9 @@ export default function StoryList() {
             <select
               name="minWordCount"
               id="minWordCount-select"
-              onChange={(e) => setMinWordCount(e.target.value)}
+              onChange={(e) => {setMinWordCount(e.target.value)
+                setShowText(true)
+              }}
             >
               <option value={0}>selecteer</option>
               {wordCountArray.map((wordCount) => {
@@ -125,7 +139,10 @@ export default function StoryList() {
             <select
               name="maxWordCount"
               id="maxWordCount-select"
-              onChange={(e) => setMaxWordCount(e.target.value)}
+              onChange={(e) => {
+                setMaxWordCount(e.target.value) 
+                setShowText(true)
+              }}
             >
               <option value={1500}>selecteer</option>
               {wordCountArray.map((wordCount) => {
@@ -139,7 +156,9 @@ export default function StoryList() {
           </div>
         </div>
       </div>
-      <div className="header-text">{headerText}</div>
+      <div className="header-text">
+        {displayHeaderText}
+      </div>
       <div className="all-stories">
         {filteredStories.map((story) => {
           return <Story key={story.id} {...story} />;
