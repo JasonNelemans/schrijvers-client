@@ -12,6 +12,7 @@ export default function StoryList() {
   const [age, setAge] = useState("all");
   const [type, setType] = useState("all");
   const [genre, setGenre] = useState("all");
+  const [searchBar, setSearchBar] = useState('')
   const [minWordCount, setMinWordCount] = useState(0);
   const [maxWordCount, setMaxWordCount] = useState(1500);
 
@@ -42,18 +43,24 @@ export default function StoryList() {
 
   const headerText =
     filteredStories.length === 0 ? (
-      <h3>Sorry, this filter matches no titles.</h3>
+      <h3>Sorry, geen resultaten gevonden.</h3>
     ) : (
       ""
     );
 
   const displayHeaderText = showText ? headerText : '';
 
+  console.log('search bar: ', searchBar)
+
   return (
     <div className="story-list">
       <h1>De verhalen</h1>
+      <div className='search-writer-container'>
+        <label>Zoek op schrijver:</label> <br/>
+        <input type="text" value={searchBar} onChange={e => setSearchBar(e.target.value)}/>
+      </div>
       <div className="sort-container">
-        <div className="sort-text">Sorteer op:</div>
+        <div className="sort-text">Of sorteer op:</div>
         <div className="filters">
           <div className="age-filter">
             <label htmlFor="age-select">Leeftijd:</label>
