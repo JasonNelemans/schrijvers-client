@@ -16,15 +16,22 @@ export default function ReadStory() {
   const story = useSelector(selectStory);
 
   useEffect(() => {
+    //Screen starts at top when page is visited
     window.scroll(0, 0);
+    //Fetches the story where title, author, titleCliked is stored
     dispatch(fetchStoryById(id));
+    //Paragraph is fetched seperately for heatmap feature
     dispatch(fetchFirstParagraph(id, 1));
   }, [dispatch, id,]);
 
+  //Code taken from Stackoverflow which registers when user reaches the bottom of the scroll
   window.onscroll = function (ev) {
+    //If bottom of window scroll is reached the next paragraph is fetched
     if (window.innerHeight + window.scrollY === document.body.scrollHeight) {
-      setParagraphNumber(paragraphNumber + 1);
+      //Next paragraph is fetched with storyId and paragraphNumber arguments. 
       dispatch(fetchNextParagraph(id, paragraphNumber));
+      //paragraphNumber is incremented.
+      setParagraphNumber(paragraphNumber + 1);
     }
   };
 

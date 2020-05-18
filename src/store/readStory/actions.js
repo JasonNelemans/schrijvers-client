@@ -5,10 +5,12 @@ import { setMessage } from "../appState/actions";
 export const fetchStoryById = (id) => {
   return async (dispatch, getState) => {
     try {
+      //fetches the story (without paragraphs) by ID
       const response = await axios.get(`${apiUrl}/stories/story/${id}`);
-
+      //Saves to reducer
       dispatch({ type: "STORY_BY_ID", payload: response.data });
     } catch (e) {
+      //Handles error
       console.log("error: ", e);
       dispatch(setMessage("danger", true, e.response.data.message));
     }
@@ -18,6 +20,7 @@ export const fetchStoryById = (id) => {
 export const updateParagraphRead = (storyId, paragraphNumber, timesRead) => {
   return async (dispatch, getState) => {
     try {
+      //Update database with incremented timesRead value. 
       await axios.patch(`${apiUrl}/stories/update/paragraph/read`, {
         storyId,
         paragraphNumber,
@@ -30,16 +33,21 @@ export const updateParagraphRead = (storyId, paragraphNumber, timesRead) => {
   };
 };
 
-export const fetchFirstParagraph = (id, paragraphNumber) => {
+export const fetchFirstParagraph = (storyId, paragraphNumber) => {
   return async (dispatch, getState) => {
     try {
+      //Fetch paragraph depending on arguments storyId and ParagraphNumber
       const response = await axios.get(
-        `${apiUrl}/stories/paragraph/${id}/${paragraphNumber}`
+        `${apiUrl}/stories/paragraph/${storyId}/${paragraphNumber}`
       );
       
-      //could make if statement to dispatch first para if paranumber === 1, to keep DRY.
+      //(could make if statement to dispatch first para if paranumber === 1, to keep DRY.) <- (old) comment to self
+      //Handle in reducer
       dispatch({ type: "FIRST_PARAGRAPH", payload: response.data });
-      dispatch(updateParagraphRead(id, paragraphNumber, response.data.timesRead));
+      /*If paragraph is fetched the timesRead value must increment by 1 for heatmap 
+      feature. Dispatch is made with storyId, paragraphNumber and current value timesRead 
+      arguments. */
+      dispatch(updateParagraphRead(storyId, paragraphNumber, response.data.timesRead));
     } catch (e) {
       console.log("error:", e);
       dispatch(setMessage("danger", true, e.response.data.message));

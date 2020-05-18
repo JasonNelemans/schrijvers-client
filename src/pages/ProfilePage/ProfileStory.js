@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 const moment = require("moment");
 
 export default function ProfileStory(props) {
+  //Assign how long ago story was posted to var
   const time = moment(props.createdAt).fromNow();
 
   return (

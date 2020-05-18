@@ -14,11 +14,15 @@ export default function ProfilePage() {
   const profile = useSelector(selectProfilePage);
 
   useEffect(() => {
+    //If user not logged in, halt useEffect function.
     if (!user.id) return;
+    //Halt action if stories of loggedIn user already fetched. 
     if (profile.length !== 0) return;
+    //If stories of user not yet fetched, dispatch thunk.
     dispatch(storiesByUser(user.id));
   });
 
+  //Tell user to login before continuing to profile page
   if (user.name === null) {
     return (
       <div className="login-profile-container">
@@ -30,12 +34,15 @@ export default function ProfilePage() {
     );
   }
 
+  //If LoggedIn
   return (
     <div className="profile-page">
       <div className="buttons">
+        {/*Empty for now */}
         <Button variant="danger" className="button">
           Post verhaal
         </Button>
+        {/*Empty for now */}
         <Button variant="light" className="button">
           Wijzig
         </Button>
@@ -43,6 +50,7 @@ export default function ProfilePage() {
       <div className="my-stories-container">
         <h2>Mijn verhalen</h2>
         <div className="my-stories">
+          {/*Map over all stories of loggedIn user to render */}
           {profile.map((story) => {
             return <ProfileStory key={story.title} {...story} />;
           })}
