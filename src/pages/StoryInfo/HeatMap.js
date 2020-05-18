@@ -3,8 +3,7 @@ import React from "react";
 export default function HeatMap(props) {
   const timesClicked = props.titleClicked;
 
-  /*Return new array to add percentile to each element. To show what percentage of readers
-  reached which paragraph. */
+  /*Return new array to add percentile to each element. Necessary for background color  */
   const coloredParagraphs = props.paragraphs.map((para) => {
     return {
       ...para,
@@ -33,7 +32,7 @@ export default function HeatMap(props) {
           } else {
             color = "white";
           }
-          
+
           return (
             <div key={paragraph.id}>
               <div className="heat-paragraph" style={{ backgroundColor: color }} >
