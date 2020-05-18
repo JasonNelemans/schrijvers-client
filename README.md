@@ -17,7 +17,7 @@ This app is intended to serve as a platform for my (Dutch) writing peers to shar
 
 ### Some features highlighted: 
 
-![allStories](/src/images/allStories.png)
+![allStories](/src/images/Allstories.png)
 List of all stories. Able to filter depending on user conditions. 
 
 ![readStory](/src/images/readStory.png)
