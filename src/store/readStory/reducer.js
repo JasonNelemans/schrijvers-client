@@ -16,11 +16,11 @@ export default (state = initialState, action) => {
     case "FIRST_PARAGRAPH":
       return {
         ...state,
-        paragraphs: [action.payload],
+        paragraphs: [],
         lastParagraph: false,
       };
 
-    case "NEXT_PARAGRAPH":
+    case "FETCHED_PARAGRAPH":
       return {
         ...state,
         paragraphs: [...state.paragraphs, action.payload],

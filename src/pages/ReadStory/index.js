@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchStoryById,
-  fetchNextParagraph,
-  fetchFirstParagraph,
+  fetchParagraph,
 } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
 import "./readStory.css";
@@ -18,10 +17,12 @@ export default function ReadStory() {
   useEffect(() => {
     //Screen starts at top when page is visited
     window.scroll(0, 0);
-    //Fetches the story where title, author, titleCliked is stored
+    //Ensures lastParagraph value is false (on true: 'The End' is rendered) and clears paragraph array
+    dispatch({type: 'FIRST_PARAGRAPH'})
+    //Fetches the story where title and author is stored, titleCliked is updated
     dispatch(fetchStoryById(id));
-    //Paragraph is fetched seperately for heatmap feature
-    dispatch(fetchFirstParagraph(id, 1));
+    //First paragraph is fetched.
+    dispatch(fetchParagraph(id, 1));
   }, [dispatch, id,]);
 
   //Code taken from Stackoverflow which registers when user reaches the bottom of the scroll
@@ -29,7 +30,7 @@ export default function ReadStory() {
     //If bottom of window scroll is reached the next paragraph is fetched
     if (window.innerHeight + window.scrollY === document.body.scrollHeight) {
       //Next paragraph is fetched with storyId and paragraphNumber arguments. 
-      dispatch(fetchNextParagraph(id, paragraphNumber));
+      dispatch(fetchParagraph(id, paragraphNumber));
       //paragraphNumber is incremented.
       setParagraphNumber(paragraphNumber + 1);
     }

@@ -33,36 +33,20 @@ export const updateParagraphRead = (storyId, paragraphNumber, timesRead) => {
   };
 };
 
-export const fetchFirstParagraph = (storyId, paragraphNumber) => {
+export const fetchParagraph = (storyId, paragraphNumber) => {
   return async (dispatch, getState) => {
     try {
       //Fetch paragraph depending on arguments storyId and ParagraphNumber
       const response = await axios.get(
         `${apiUrl}/stories/paragraph/${storyId}/${paragraphNumber}`
       );
-      
-      //(could make if statement to dispatch first para if paranumber === 1, to keep DRY.) <- (old) comment to self
       //Handle in reducer
-      dispatch({ type: "FIRST_PARAGRAPH", payload: response.data });
+      dispatch({ type: "FETCHED_PARAGRAPH", payload: response.data });
+      
       /*If paragraph is fetched the timesRead value must increment by 1 for heatmap 
       feature. Dispatch is made with storyId, paragraphNumber and current value timesRead 
       arguments. */
       dispatch(updateParagraphRead(storyId, paragraphNumber, response.data.timesRead));
-    } catch (e) {
-      console.log("error:", e);
-      dispatch(setMessage("danger", true, e.response.data.message));
-    }
-  };
-};
-
-export const fetchNextParagraph = (id, paragraphNumber) => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await axios.get(
-        `${apiUrl}/stories/paragraph/${id}/${paragraphNumber}`
-      );
-      dispatch({ type: "NEXT_PARAGRAPH", payload: response.data });
-      dispatch(updateParagraphRead(id, paragraphNumber, response.data.timesRead));
     } catch (e) {
       dispatch({ type: "LAST_PARAGRAPH" });
     }
