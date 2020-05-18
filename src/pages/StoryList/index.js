@@ -13,6 +13,7 @@ export default function StoryList() {
   const [type, setType] = useState("all");
   const [genre, setGenre] = useState("all");
   const [searchBar, setSearchBar] = useState('')
+  const [author, setAuthor] = useState('all')
   const [minWordCount, setMinWordCount] = useState(0);
   const [maxWordCount, setMaxWordCount] = useState(1500);
 
@@ -32,9 +33,10 @@ export default function StoryList() {
     if (
       (story.pg >= Number(age) || age.length === 3) &&
       (story.type === type || type.length === 3) &&
-      (story.genre === genre || genre.length === 3) &&
+      (story.genre === genre || genre.length === 3) && 
       story.wordCount >= minWordCount &&
-      story.wordCount <= maxWordCount
+      story.wordCount <= maxWordCount &&
+      (story.user.name === author.toLowerCase() || author.length === 3)
     ) {
       return true;
     }
@@ -50,14 +52,13 @@ export default function StoryList() {
 
   const displayHeaderText = showText ? headerText : '';
 
-  console.log('search bar: ', searchBar)
-
   return (
     <div className="story-list">
       <h1>De verhalen</h1>
       <div className='search-writer-container'>
         <label>Zoek op schrijver:</label> <br/>
-        <input type="text" value={searchBar} onChange={e => setSearchBar(e.target.value)}/>
+        <input type="text" value={searchBar} onChange={e => setSearchBar(e.target.value)}/> {   }
+        <button onClick={() => setAuthor(searchBar)}>Zoek!</button>
       </div>
       <div className="sort-container">
         <div className="sort-text">Of sorteer op:</div>
