@@ -36,6 +36,10 @@ export default function ReadStory() {
     }
   };
 
+  /*NOTE TO SELF: If user refreshes on page paragraphNumber is incremented 
+  without titleclicked updated. MUST FIX. How to stop updating paragraphNumber read if 
+  page refreshed? */
+
   return (
     <div className="read-story">
       <div className="story-title">
@@ -44,11 +48,13 @@ export default function ReadStory() {
         <h3 id='author-name'><em>{story.user.name}</em></h3>
       </div>
       <div className="paragraphs">
+        {/*Maps over paragraph array */}
         {story.paragraphs.map((paragraph, i) => {
-          if(!paragraph) return;
+          if(!paragraph) return; //halts map to prevent error
           return <p key={i}>{paragraph.text}</p>;
         })}
       </div>
+      {/*If lastParagraph value === true, render: THE END */}
       <div className="last-paragraph">
         {story.lastParagraph ? (
           <h3>
