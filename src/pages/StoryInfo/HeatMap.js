@@ -3,6 +3,7 @@ import React from "react";
 export default function HeatMap(props) {
   const timesClicked = props.titleClicked;
 
+  /*Return new array to add percentile to each element. Necessary for background color  */
   const coloredParagraphs = props.paragraphs.map((para) => {
     return {
       ...para,
@@ -14,8 +15,11 @@ export default function HeatMap(props) {
     <div className="heatmap">
       <div className="heatmap-paragraphs">
         
+        {/**Map over array to render on page */}
         {coloredParagraphs.map((paragraph) => {
           
+          {/**Determine background color by percentile. The higher the percentile the darker
+          the color. */}
           let color;
           if (paragraph.percentile > 0 && paragraph.percentile <= 25) {
             color = "#f26161";
@@ -28,33 +32,10 @@ export default function HeatMap(props) {
           } else {
             color = "white";
           }
-          let percentile;
-          if(Math.round(paragraph.percentile) === 0){
-            percentile = 0;
-          } else if (!Math.round(paragraph.percentile)) {
-            percentile ='-'
-          } else {
-            percentile = Math.round(paragraph.percentile)
-          }
+
           return (
             <div key={paragraph.id}>
-              <p>
-                <span>
-                  Paragraaf: <strong>{paragraph.paragraphNumber}</strong>
-                </span>
-                {"  "}
-                <span>
-                  Aantal keer gelezen: <strong>{paragraph.timesRead}</strong>
-                </span>
-                {"  "}
-                <span>
-                  Percentile: <strong>{percentile}%</strong>
-                </span>
-              </p>
-              <div
-                className="heat-paragraph"
-                style={{ backgroundColor: color }}
-              >
+              <div className="heat-paragraph" style={{ backgroundColor: color }} >
                 <p>{paragraph.text}</p>
               </div>
             </div>

@@ -18,17 +18,21 @@ export default function StoryList() {
   const [maxWordCount, setMaxWordCount] = useState(1500);
 
   useEffect(() => {
-    if (stories.length !== 0) return;
-    dispatch(fetchStories());
+    if (stories.length !== 0) return; //halts function if stories array already fetched
+    dispatch(fetchStories()); //fetch all stories
   }, [dispatch, stories.length]);
 
+  //create array of all pg ratings without duplicates
   const pgArray = [...new Set(stories.map((story) => story.pg))].sort(
     (a, b) => a - b
   );
+  //create array of all types without duplicates
   const typeArray = [...new Set(stories.map((story) => story.type))];
+  //create genre array of all genres without duplicates
   const genreArray = [...new Set(stories.map((story) => story.genre))];
   const wordCountArray = [0, 500, 1000, 1500];
 
+  //filter stories array based on conditions of pg/type/genre/wordcount and author
   const filteredStories = stories.filter((story) => {
     if (
       (story.pg >= Number(age) || age.length === 3) &&
@@ -43,37 +47,40 @@ export default function StoryList() {
     return false;
   });
 
-  const headerText =
-    filteredStories.length === 0 ? (
-      <h3>Sorry, geen resultaten gevonden.</h3>
-    ) : (
-      ""
-    );
-
+  //if filteredStories array length === 0 (which means empty filter results), display message
+  const headerText = filteredStories.length === 0 
+  ? (<h3>Sorry, geen resultaten gevonden.</h3>) 
+  : ("");
+  
+  //this prevents headerText from showing upon first loading the page. 
   const displayHeaderText = showText ? headerText : '';
 
   return (
     <div className="story-list">
       <h1>De verhalen</h1>
+      {/**Search for writer in search bar */}
       <div className='search-writer-container'>
         <label>Zoek op schrijver:</label> <br/>
         <input type="text" value={searchBar} onChange={e => setSearchBar(e.target.value)}/> {   }
         <button onClick={() => setAuthor(searchBar)}>Zoek!</button>
       </div>
+      {/**Sort on input filters */}
       <div className="sort-container">
         <div className="sort-text">Of sorteer op:</div>
         <div className="filters">
+          {/**Age filter */}
           <div className="age-filter">
             <label htmlFor="age-select">Leeftijd:</label>
             <select
               name="age"
               id="age-select"
               onChange={(e) => {
-                setAge(e.target.value) 
+                {/**Age will be set to user input value. True for all filters */}
+                setAge(e.target.value)
+                {/**If a single filter is activated showText will be set to true */} 
                 setShowText(true)
-              }}
-            >
-              <option value="all">selecteer</option>
+              }}>
+              <option value="all">Alle</option>
               {pgArray.map((pg) => {
                 return (
                   <option value={pg} key={pg}>
@@ -83,6 +90,7 @@ export default function StoryList() {
               })}
             </select>
           </div>
+          {/**Type filter */}
           <div className="type-filter">
             <label htmlFor="type-select">Type:</label>
             <select
@@ -91,9 +99,8 @@ export default function StoryList() {
               onChange={(e) => {
                 setType(e.target.value)
                 setShowText(true)
-              }}
-            >
-              <option value="all">selecteer</option>
+              }}>
+              <option value="all">Alle</option>
               {typeArray.map((type) => {
                 return (
                   <option value={type} key={type}>
@@ -103,6 +110,7 @@ export default function StoryList() {
               })}
             </select>
           </div>
+          {/**Genre filter */}
           <div className="genre-filter">
             <label htmlFor="genre-select">Genre:</label>
             <select
@@ -111,9 +119,8 @@ export default function StoryList() {
               onChange={(e) => {
                 setGenre(e.target.value)
                 setShowText(true)
-              }}
-            >
-              <option value="all">selecteer</option>
+              }}>
+              <option value="all">Alle</option>
               {genreArray.map((genre) => {
                 return (
                   <option value={genre} key={genre}>
@@ -123,6 +130,7 @@ export default function StoryList() {
               })}
             </select>
           </div>
+          {/**Mininum wordcount filter */}
           <div className="minWordCount-filter">
             <label htmlFor="minWordCount-select">Minimum aantal woorden:</label>
             <select
@@ -130,9 +138,7 @@ export default function StoryList() {
               id="minWordCount-select"
               onChange={(e) => {setMinWordCount(e.target.value)
                 setShowText(true)
-              }}
-            >
-              <option value={0}>selecteer</option>
+              }}>
               {wordCountArray.map((wordCount) => {
                 return (
                   <option value={wordCount} key={wordCount}>
@@ -142,6 +148,7 @@ export default function StoryList() {
               })}
             </select>
           </div>
+          {/**Maximum wordcount filter */}
           <div className="maxWordCount-filter">
             <label htmlFor="maxWordCount-select">Maximum aantal woorden:</label>
             <select
@@ -150,10 +157,8 @@ export default function StoryList() {
               onChange={(e) => {
                 setMaxWordCount(e.target.value) 
                 setShowText(true)
-              }}
-            >
-              <option value={1500}>selecteer</option>
-              {wordCountArray.map((wordCount) => {
+              }}>
+              {wordCountArray.reverse().map((wordCount) => {
                 return (
                   <option value={wordCount} key={wordCount}>
                     {wordCount}
@@ -164,9 +169,11 @@ export default function StoryList() {
           </div>
         </div>
       </div>
+      {/**The error message if filter results are empty */}
       <div className="header-text">
         {displayHeaderText}
       </div>
+      {/**Map over all filteredStories to render them */}
       <div className="all-stories">
         {filteredStories.map((story) => {
           return <Story key={story.id} {...story} />;

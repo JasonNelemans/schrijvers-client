@@ -5,7 +5,7 @@ import { setMessage } from '../appState/actions';
 export const fetchStoryInfo = (userId, storyId) => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`${apiUrl}/stories/user/story/${userId}/${storyId}`)
+      const response = await axios.get(`${apiUrl}/stories/info/${userId}/${storyId}`)
       dispatch({type: 'STORY_INFO_SUCCES', payload: response.data })
     }
     catch (e) {

@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchStoryById,
-  fetchNextParagraph,
-  fetchFirstParagraph,
+  fetchParagraph,
 } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
 import "./readStory.css";
@@ -16,17 +15,30 @@ export default function ReadStory() {
   const story = useSelector(selectStory);
 
   useEffect(() => {
+    //Screen starts at top when page is visited
     window.scroll(0, 0);
+    //Ensures lastParagraph value is false (on true: 'The End' is rendered) and clears paragraph array
+    dispatch({type: 'FIRST_PARAGRAPH'})
+    //Fetches the story where title and author is stored, titleCliked is updated
     dispatch(fetchStoryById(id));
-    dispatch(fetchFirstParagraph(id, 1));
+    //First paragraph is fetched.
+    dispatch(fetchParagraph(id, 1));
   }, [dispatch, id,]);
 
+  //Code taken from Stackoverflow which registers when user reaches the bottom of the scroll
   window.onscroll = function (ev) {
+    //If bottom of window scroll is reached the next paragraph is fetched
     if (window.innerHeight + window.scrollY === document.body.scrollHeight) {
+      //Next paragraph is fetched with storyId and paragraphNumber arguments. 
+      dispatch(fetchParagraph(id, paragraphNumber));
+      //paragraphNumber is incremented.
       setParagraphNumber(paragraphNumber + 1);
-      dispatch(fetchNextParagraph(id, paragraphNumber));
     }
   };
+
+  /*NOTE TO SELF: If user refreshes on page paragraphNumber is incremented 
+  without titleclicked updated. MUST FIX. How to stop updating paragraphNumber read if 
+  page refreshed? */
 
   return (
     <div className="read-story">
@@ -36,11 +48,13 @@ export default function ReadStory() {
         <h3 id='author-name'><em>{story.user.name}</em></h3>
       </div>
       <div className="paragraphs">
+        {/*Maps over paragraph array */}
         {story.paragraphs.map((paragraph, i) => {
-          if(!paragraph) return;
+          if(!paragraph) return; //halts map to prevent error
           return <p key={i}>{paragraph.text}</p>;
         })}
       </div>
+      {/*If lastParagraph value === true, render: THE END */}
       <div className="last-paragraph">
         {story.lastParagraph ? (
           <h3>
