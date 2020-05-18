@@ -15,29 +15,23 @@ This app is intended to serve as a platform for my (Dutch) writing peers to shar
 
 ## App demo
 
-![Landing page](/src/images/Landingpage.png)
-The landing page.
+### Some features highlighted: 
 
-![Login page](/src/images/loginpage.png)
-Login page.
+![allStories](/src/images/allStories.png)
+List of all stories. Able to filter depending on user conditions. 
 
-![All stories](/src/images/Allstories.png)
-All stories page.
-
-![Profile page](/src/images/Mystories.png)
-Profile page.
-
+![readStory](/src/images/readStory.png)
+Read a story. 
 
 ![Heatmap](/src/images/Heatmap.png)
-Heatmap. Details about how much of your story was read, to suggest improvements.
-
-![Coming soon](/src/images/comingsoon.png)
-And many more features to come.
+Heatmap. Shows how much of writer's story was actually read by users.
 
 ## Technologies used
 
 👀👇 Click links to view some samples in this project 👇👀
-
+ * [HTML](https://github.com/JasonNelemans/schrijvers-client/blob/master/public/index.html)
+ * [CSS](https://github.com/JasonNelemans/schrijvers-client/blob/master/src/pages/LandingPage/landingpage.css)
+ * [Javascript](https://github.com/JasonNelemans/schrijvers-client/blob/master/src/pages/StoryList/index.js)
  * [React](https://github.com/JasonNelemans/schrijvers-client/blob/master/src/App.js)  
  * [Redux](https://github.com/JasonNelemans/schrijvers-client/tree/master/src/store/readStory)  
  * [Express](https://github.com/JasonNelemans/schrijvers-server/blob/master/index.js)  
@@ -59,20 +53,7 @@ The app is still a work in progress, but the horizons are clear and so is the wa
 
 ## User stories and Wireframe
 
-### As a user for this project:
-
- * As a user, I want to sign up and login. 
- * As a user, I want to see my profile page. 
- * As a user, I want to see all stories I posted. 
- * As a user, I want to read all analytics about my individual stories.
- * As a user, I want to read other people's stories.
- * As a user, I want to upload my story. 
- * As a user, I want to filter stories by categories. 
- * As a user, I want to search the stories of my favorite author. 
- * As a user, I want to organize meetups. 
- * As a user, I want to create writing groups. 
-
-**For a more detailed overview of all past, current and future stories, please check out [here](https://trello.com/b/Z9tchgrn/short-story-platform)** 
+**For a detailed overview of all past, current and future stories, please check out [here](https://trello.com/b/Z9tchgrn/short-story-platform)** 
 
 *This mvp is still a work in progress. Some features still need to be implemented and revised. If you have any suggestions, please let me know [here](https://www.linkedin.com/in/jasonnelemans/)*
 

@@ -39,12 +39,8 @@ export default function ProfilePage() {
     <div className="profile-page">
       <div className="buttons">
         {/*Empty for now */}
-        <Button variant="danger" className="button">
-          Post verhaal
-        </Button>
-        {/*Empty for now */}
-        <Button variant="light" className="button">
-          Wijzig
+        <Button variant="info" className="button">
+          Nieuw verhaal
         </Button>
       </div>
       <div className="my-stories-container">

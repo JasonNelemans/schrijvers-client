@@ -1,5 +1,5 @@
 .buttons {
-  margin: 12px 10px 10px 75%;
+  margin: 12px 10px 10px 85%;
 }
 
 .button {
@@ -57,3 +57,9 @@
   font-size: 50px;
   margin-bottom: 25px;
 }
+
+.profile-buttons > a {
+  display: inline;
+  padding: 2px;
+}
+
