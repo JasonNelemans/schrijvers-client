@@ -16,8 +16,10 @@ export default function StoryInfo() {
   const info = useSelector(selectStoryInfo);
 
   useEffect(() => {
+    //Halt action if !id or !user.id to stop error
     if (!id) return;
     if (!user.id) return;
+    //Fetch story with all paragraphs
     dispatch(fetchStoryInfo(user.id, id));
   }, [id, user.id, dispatch]);
 
@@ -30,13 +32,12 @@ export default function StoryInfo() {
       <p style={{ fontWeight: "normal" }}>
         type: <strong>{info.type}</strong> genre: <strong>{info.genre}</strong>{" "}
       </p>
-      <h5>
-        Titel geklikt: <strong>{info.titleClicked}</strong> keer{" "}
-      </h5>
       <div className="heatmap-container">
-        <p>
-          Paragraaf lengte: <strong>{info.paragraphs.length}</strong>
-        </p>
+        <h4>Heatmap</h4>
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+          <span>Paragraaf lengte: <strong>{info.paragraphs.length}</strong></span>
+          <span>Titel geklikt: <strong>{info.titleClicked}</strong> keer</span>
+        </div>
         <HeatMap {...info} />
       </div>
     </div>
