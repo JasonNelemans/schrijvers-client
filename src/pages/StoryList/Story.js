@@ -19,10 +19,18 @@ export default function Story(props) {
       <img width="70" height="90" alt="" src={props.imgUrl}/>
       <div className="story-text">
         <NavLink to={`/stories/${props.id}`} exact={true} onClick={clickHandler}>
-          <h3 style={{ fontFamily: "sans serif", fontSize: "30px", margin: 0 }}>
+          <h3 style={{ fontFamily: "sans serif", fontSize: "30px", margin: 0, display: 'inline-block' }}>
             {props.title}
           </h3>
         </NavLink>
+        <div className='ratings'>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+        <br/>
         <span className="author"> door: {props.user.name}</span> <br/>
         <p>
          Type: <strong>{props.type}</strong> (<em>{props.genre}</em>) 

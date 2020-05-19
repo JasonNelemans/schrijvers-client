@@ -77,3 +77,11 @@
   color: red;
 }
 
+.ratings {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.checked {
+  color: orange;
+}
