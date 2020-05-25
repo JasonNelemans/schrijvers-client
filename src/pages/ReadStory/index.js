@@ -63,7 +63,7 @@ export default function ReadStory() {
           <h3><strong>THE END</strong></h3> 
           <div className='leave-rating'>
             <h4>Leave a rating</h4>
-            {token ? <DynamicStarRating /> : <p>Please login to continue</p>}
+            {token ? <DynamicStarRating /> : <p>Please <a href='../Login/'>login</a> to continue</p>}
           </div>
       </div>
     </div>
