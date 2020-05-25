@@ -65,8 +65,17 @@ export const updateTitleClicked = (id) => {
   };
 };
 
-export const giveRating = (rating) => {
+export const giveRating = (amount, userId, storyId) => {
   return async (dispatch, getState) => {
-    console.log('RATING RECEIVED! ', rating)
+    try {
+      await axios.post(`${apiUrl}/stories/giverating`, {
+        userId,
+        storyId, 
+        amount
+      })
+    }
+    catch (e) {
+      console.log('error: ', e);
+    }
   }
 }

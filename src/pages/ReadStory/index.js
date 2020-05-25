@@ -8,7 +8,7 @@ import {
 import { selectStory } from "../../store/readStory/selectors";
 import "./readStory.css";
 import DynamicStarRating from "./DynamicStarRating";
-import { selectToken } from '../../store/user/selectors';
+import { selectToken, selectUser } from '../../store/user/selectors';
 
 export default function ReadStory() {
   const [paragraphNumber, setParagraphNumber] = useState(2);
@@ -16,6 +16,7 @@ export default function ReadStory() {
   const dispatch = useDispatch();
   const story = useSelector(selectStory);
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
 
 
   useEffect(() => {
@@ -63,7 +64,7 @@ export default function ReadStory() {
           <h3><strong>THE END</strong></h3> 
           <div className='leave-rating'>
             <h4>Leave a rating</h4>
-            {token ? <DynamicStarRating /> : <p>Please <a href='../Login/'>login</a> to continue</p>}
+            {token ? <DynamicStarRating userId={user.id} storyId={story.id}/> : <p>Please <a href='../Login/'>login</a> to continue</p>}
           </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import { updateTitleClicked } from "../../store/readStory/actions";
 const moment = require("moment");
 
 export default function Story(props) {
-  const time = moment(props.createdAt).fromNow(); //to when story was posted
+  const time = moment(props.createdAt).fromNow(); //time ago when story was posted
   const dispatch = useDispatch();
 
   const clickHandler = () => {

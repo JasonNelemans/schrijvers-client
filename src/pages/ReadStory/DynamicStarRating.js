@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FaStar } from 'react-icons/fa';
 import { giveRating } from '../../store/readStory/actions';
 
-export default function DynamicStarRating() {
+export default function DynamicStarRating(props) {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function DynamicStarRating() {
 
   const clickHandler = (e) => {
     setRating(e.target.value);
-    dispatch(giveRating(e.target.value))
+    dispatch(giveRating(e.target.value, props.userId, props.storyId))
   }
 
   return (
