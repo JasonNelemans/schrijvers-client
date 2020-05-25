@@ -8,12 +8,16 @@ import {
 import { selectStory } from "../../store/readStory/selectors";
 import "./readStory.css";
 import DynamicStarRating from "./DynamicStarRating";
+import { selectToken } from '../../store/user/selectors';
 
 export default function ReadStory() {
   const [paragraphNumber, setParagraphNumber] = useState(2);
   const { id } = useParams();
   const dispatch = useDispatch();
   const story = useSelector(selectStory);
+  const token = useSelector(selectToken);
+
+  console.log('token: ', token);
 
   useEffect(() => {
     //Screen starts at top when page is visited

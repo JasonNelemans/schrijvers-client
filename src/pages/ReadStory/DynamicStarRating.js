@@ -1,9 +1,12 @@
-import React, { useState } from 'react' 
-import { FaStar } from 'react-icons/fa'
+import React, { useState } from 'react' ;
+import { useDispatch } from 'react-redux';
+import { FaStar } from 'react-icons/fa';
+import { giveRating } from '../../store/readStory/actions';
 
 export default function DynamicStarRating() {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+  const dispatch = useDispatch();
 
   //To determine what message rendered after rating given
   let ratingText; 
@@ -15,6 +18,11 @@ export default function DynamicStarRating() {
     ratingText = `You rated ${rating} stars!`
   }
 
+  const clickHandler = (e) => {
+    setRating(e.target.value);
+    dispatch(giveRating(e.target.value))
+  }
+
   return (
     <div className='dynamic-star-container'>
       {/**Maps over array of 5 to return imported star icon */}
@@ -23,13 +31,13 @@ export default function DynamicStarRating() {
        const ratingValue = i + 1;
 
        return (
-         <label>
+         <label key={i}>
            {/**Render input radio (made invisible in CSS) for star to be checked */}
            <input 
             type='radio'
             name='rating'
             value={ratingValue}
-            onClick={() => setRating(ratingValue)}
+            onClick={clickHandler}
            />
            {/**Render star icon with events */}
            <FaStar 
