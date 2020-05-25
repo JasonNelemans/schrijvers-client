@@ -53,7 +53,7 @@ export const fetchParagraph = (storyId, paragraphNumber) => {
   };
 };
 
-export const updateTitleClicked = (id, titleClicked) => {
+export const updateTitleClicked = (id) => {
   return async (dispatch, getState) => {
     try {
       await axios.patch(`${apiUrl}/stories/clicktitle`, {
@@ -64,3 +64,23 @@ export const updateTitleClicked = (id, titleClicked) => {
     }
   };
 };
+
+export const giveRating = (amount, userId, storyId) => {
+  return async (dispatch, getState) => {
+    try {
+      await axios.post(`${apiUrl}/stories/giverating`, {
+        userId,
+        storyId, 
+        amount
+      })
+      dispatch({type: 'ADD_RATING', payload: {
+        userId,
+        storyId,
+        amount: Number(amount)
+      }})
+    }
+    catch (e) {
+      console.log('error: ', e);
+    }
+  }
+}

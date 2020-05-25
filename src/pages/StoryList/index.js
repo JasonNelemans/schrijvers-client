@@ -75,9 +75,9 @@ export default function StoryList() {
               name="age"
               id="age-select"
               onChange={(e) => {
-                {/**Age will be set to user input value. True for all filters */}
+                /**Age will be set to user input value. True for all filters */
                 setAge(e.target.value)
-                {/**If a single filter is activated showText will be set to true */} 
+                /**If a single filter is activated showText will be set to true */ 
                 setShowText(true)
               }}>
               <option value="all">Alle</option>

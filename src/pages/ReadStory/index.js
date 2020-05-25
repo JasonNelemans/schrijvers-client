@@ -7,12 +7,17 @@ import {
 } from "../../store/readStory/actions";
 import { selectStory } from "../../store/readStory/selectors";
 import "./readStory.css";
+import DynamicStarRating from "./DynamicStarRating";
+import { selectToken, selectUser } from '../../store/user/selectors';
 
 export default function ReadStory() {
   const [paragraphNumber, setParagraphNumber] = useState(2);
   const { id } = useParams();
   const dispatch = useDispatch();
   const story = useSelector(selectStory);
+  const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
+
 
   useEffect(() => {
     //Screen starts at top when page is visited
@@ -55,14 +60,12 @@ export default function ReadStory() {
         })}
       </div>
       {/*If lastParagraph value === true, render: THE END */}
-      <div className="last-paragraph">
-        {story.lastParagraph ? (
-          <h3>
-            <strong>THE END</strong>
-          </h3>
-        ) : (
-          ""
-        )}
+      <div className="last-paragraph" style={{display: story.lastParagraph ? true : 'none'}}> 
+          <h3><strong>THE END</strong></h3> 
+          <div className='leave-rating'>
+            <h4>Leave a rating</h4>
+            {token ? <DynamicStarRating userId={user.id} storyId={story.id}/> : <p>Please <a href='../Login/'>login</a> to continue</p>}
+          </div>
       </div>
     </div>
   );

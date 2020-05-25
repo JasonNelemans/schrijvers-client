@@ -18,8 +18,8 @@ export default function HeatMap(props) {
         {/**Map over array to render on page */}
         {coloredParagraphs.map((paragraph) => {
           
-          {/**Determine background color by percentile. The higher the percentile the darker
-          the color. */}
+          /**Determine background color by percentile. The higher the percentile the darker
+          the color. */
           let color;
           if (paragraph.percentile > 0 && paragraph.percentile <= 25) {
             color = "#f26161";

@@ -1,5 +1,5 @@
 .read-story {
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 .story-title {
@@ -37,3 +37,21 @@
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+.leave-rating {
+  margin-top: 100px;
+}
+
+.dynamic-star-container {
+  margin-top: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: 200ms;
+}
+
