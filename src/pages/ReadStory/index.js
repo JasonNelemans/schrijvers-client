@@ -17,7 +17,6 @@ export default function ReadStory() {
   const story = useSelector(selectStory);
   const token = useSelector(selectToken);
 
-  console.log('token: ', token);
 
   useEffect(() => {
     //Screen starts at top when page is visited
@@ -64,7 +63,7 @@ export default function ReadStory() {
           <h3><strong>THE END</strong></h3> 
           <div className='leave-rating'>
             <h4>Leave a rating</h4>
-            <DynamicStarRating />
+            {token ? <DynamicStarRating /> : <p>Please login to continue</p>}
           </div>
       </div>
     </div>
