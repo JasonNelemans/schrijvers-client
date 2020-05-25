@@ -73,6 +73,11 @@ export const giveRating = (amount, userId, storyId) => {
         storyId, 
         amount
       })
+      dispatch({type: 'ADD_RATING', payload: {
+        userId,
+        storyId,
+        amount: Number(amount)
+      }})
     }
     catch (e) {
       console.log('error: ', e);
