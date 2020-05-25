@@ -15,16 +15,21 @@ This app is intended to serve as a platform for my (Dutch) writing peers to shar
 
 ## App demo
 
+[Click here to see the app deployed](https://priceless-bardeen-be2589.netlify.app/)
+
 ### Some features highlighted: 
 
 ![allStories](/src/images/Allstories.png)
 List of all stories. Able to filter depending on user conditions. 
 
 ![readStory](/src/images/readStory.png)
-Read a story. 
+Read a story, via infinite scroll pagination. 
 
 ![Heatmap](/src/images/Heatmap.png)
 Heatmap. Shows how much of writer's story was actually read by users.
+
+![Rating](/src/images/rating.png)
+User is able to give a star rating if logged in. 
 
 ## Technologies used
 
